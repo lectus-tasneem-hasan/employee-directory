@@ -1,14 +1,15 @@
 import { useNavigate, useParams } from 'react-router-dom'
-import { employees } from '../data/employees'
 import Button from '../components/Button'
+import { useEmployees } from '../context/useEmployees'
 import './EmployeeDetails.css'
 
 function EmployeeDetails() {
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
+  const { getEmployeeById } = useEmployees()
 
   const numericId = Number(id)
-  const employee = employees.find((emp) => emp.id === numericId)
+  const employee = getEmployeeById(numericId)
 
   if (!employee) {
     return (

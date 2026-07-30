@@ -1,13 +1,16 @@
 import { useMemo, useState } from 'react'
-import { employees as initialEmployees } from '../data/employees'
-import type { Employee } from '../types/employee'
+import type { NewEmployeeInput } from '../types/employee'
 import EmployeeCard from '../components/EmployeeCard'
 import SearchInput from '../components/SearchInput'
+import Button from '../components/Button'
+import AddEmployeeModal from '../components/AddEmployeeModal'
+import { useEmployees } from '../context/useEmployees'
 import './EmployeeList.css'
 
 function EmployeeList() {
-  const [employees] = useState<Employee[]>(initialEmployees)
+  const { employees, addEmployee } = useEmployees()
   const [query, setQuery] = useState<string>('')
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
   const filteredEmployees = useMemo(() => {
     const normalized = query.trim().toLowerCase()
@@ -16,6 +19,10 @@ function EmployeeList() {
       employee.name.toLowerCase().includes(normalized)
     )
   }, [employees, query])
+
+  const handleAddEmployee = (input: NewEmployeeInput) => {
+    addEmployee(input)
+  }
 
   return (
     <div className="employee-list-page">
@@ -26,7 +33,12 @@ function EmployeeList() {
             {employees.length} employees across the company
           </p>
         </div>
-        <SearchInput value={query} onChange={setQuery} />
+        <div className="employee-list-actions">
+          <SearchInput value={query} onChange={setQuery} />
+          <Button variant="primary" onClick={() => setIsModalOpen(true)}>
+            Add Employee
+          </Button>
+        </div>
       </header>
 
       {filteredEmployees.length > 0 ? (
@@ -40,6 +52,12 @@ function EmployeeList() {
           <p>No employees match "{query}".</p>
         </div>
       )}
+
+      <AddEmployeeModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onAddEmployee={handleAddEmployee}
+      />
     </div>
   )
 }
