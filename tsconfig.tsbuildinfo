@@ -1,1 +1,0 @@
-{"root":["./src/app.tsx","./src/main.tsx","./src/components/button.tsx","./src/components/employeecard.tsx","./src/components/searchinput.tsx","./src/data/employees.ts","./src/pages/employeedetails.tsx","./src/pages/employeelist.tsx","./src/types/employee.ts"],"version":"5.9.3"}
