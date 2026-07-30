@@ -1,0 +1,47 @@
+.employee-list-page {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+}
+
+.employee-list-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.employee-list-header h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  color: #111827;
+}
+
+.employee-list-subtitle {
+  margin: 0.25rem 0 0;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.employee-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.employee-empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #6b7280;
+  background-color: #ffffff;
+  border: 1px dashed #d1d5db;
+  border-radius: 12px;
+}
+
+@media (max-width: 480px) {
+  .employee-list-header {
+    align-items: stretch;
+  }
+}

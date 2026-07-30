@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: #f7f8fc;
+  color: #111827;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+}

@@ -1,0 +1,62 @@
+.employee-card {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1rem;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: box-shadow 0.15s ease, transform 0.1s ease, border-color 0.15s ease;
+}
+
+.employee-card:hover,
+.employee-card:focus-visible {
+  box-shadow: 0 6px 16px rgba(17, 24, 39, 0.08);
+  border-color: #c7d0f5;
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.employee-card-avatar {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.employee-card-info {
+  min-width: 0;
+}
+
+.employee-card-name {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.employee-card-role {
+  margin: 0.15rem 0 0.3rem;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.employee-card-department {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #3454d1;
+  background-color: #eef1fb;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+}
