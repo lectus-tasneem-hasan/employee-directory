@@ -10,3 +10,6 @@ export interface Employee {
   joinedOn: string
   bio: string
 }
+
+export type NewEmployeeInput = Omit<Employee, 'id' | 'avatarColor' | 'joinedOn'>
+
